@@ -44,6 +44,8 @@ echo "<br>";
      echo "kurang berhasil coba lagi<br>";
  }
  
+ echo "<br>";
+ echo "<br>";
 
 echo "<b>HASIL NILAI</b>";
 echo "<br>";
@@ -91,7 +93,7 @@ echo "<br>";
 
 $indonesia=$_POST['indonesia'];
 
-echo "nilai matematika : " .$matematika;
+echo "nilai indonesia : " .$indonesia;
 if ($indonesia >= 90 && $indonesia <= 100)
 {
 echo " (A)";
@@ -148,6 +150,28 @@ else
 echo " (TIDAK LULUS)" ;
 }
 echo "<br>";
+
+$total= $produktif + $matematika + $indonesia + $agama + $pipas; 
+ $rata= $total / 7;
+ echo "Nilai rata rata saya : " . $rata;
+ echo "<br>";
+ echo "Nilai max saya : ";
+ echo max($produktif, $matematika, $indonesia, $agama, $pipas);
+ echo "<br>";
+ echo "Nilai min saya : ";
+ echo min($produktif, $matematika, $indonesia, $agama, $pipas);
+ echo "<br>";
+echo "<br>";
+
+$sql ="insert into nilai (produktif, matematika, indonesia, agama, pipas) 
+ values('$produktif', '$matematika', '$indonesia', '$agama', '$pipas')";
+ 
+ if(mysqli_query($server, $sql)) {
+     echo "penimpanan berhasil!! ";
+ } else {
+     echo "kurang berhasil coba lagi<br>";
+ }
+ 
 
 ?>
 
